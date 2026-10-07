@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio profissional de Artur Fagundes — negócios, processos, projetos e engenharia." />
+  <title>Artur Fagundes | Portfólio Profissional</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --surface:#ffffff;
+      --text:#18212f;
+      --muted:#647084;
+      --line:#e4e9f0;
+      --brand:#123c56;
+      --brand-2:#1c678e;
+      --soft:#eaf3f7;
+      --shadow:0 18px 50px rgba(20,40,60,.08);
+      --radius:20px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(246,248,251,.88);
+      border-bottom:1px solid rgba(228,233,240,.85);
+    }
+    .nav-inner{
+      height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{
+      font-weight:800;letter-spacing:.02em;font-size:1rem;
+    }
+    .brand span{color:var(--brand-2)}
+    .menu{display:flex;align-items:center;gap:24px;font-size:.94rem;color:#465365}
+    .menu a:hover{color:var(--brand)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 18px;border-radius:12px;font-weight:700;
+      border:1px solid transparent;transition:.2s ease;
+    }
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-primary:hover{transform:translateY(-1px);background:#0e3147}
+    .btn-outline{border-color:var(--line);background:#fff}
+    .btn-outline:hover{border-color:#bcc8d4;transform:translateY(-1px)}
+    .hero{padding:92px 0 72px}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:54px;align-items:center}
+    .eyebrow{
+      display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--soft);
+      color:var(--brand);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;
+    }
+    h1{
+      margin:20px 0 18px;font-size:clamp(3rem, 7vw, 6.4rem);
+      line-height:.96;letter-spacing:-.055em;
+    }
+    .hero h2{
+      margin:0 0 18px;font-size:clamp(1.25rem, 2.5vw, 2rem);
+      color:var(--brand);font-weight:700;
+    }
+    .hero p{font-size:1.08rem;color:var(--muted);max-width:760px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .portrait{
+      min-height:430px;border-radius:34px;position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 68% 28%, rgba(255,255,255,.22), transparent 32%),
+        linear-gradient(145deg, #0f3045, #1d6a90);
+      box-shadow:var(--shadow);
+    }
+    .portrait::before{
+      content:"AF";position:absolute;right:-12px;bottom:-72px;
+      font-weight:900;font-size:13rem;color:rgba(255,255,255,.08);letter-spacing:-.08em;
+    }
+    .portrait-card{
+      position:absolute;left:26px;right:26px;bottom:26px;
+      background:rgba(255,255,255,.95);border-radius:18px;padding:20px;
+      box-shadow:0 15px 40px rgba(0,0,0,.14);
+    }
+    .portrait-card strong{display:block;font-size:1.05rem}
+    .portrait-card span{color:var(--muted);font-size:.92rem}
+    section{padding:82px 0}
+    .section-head{max-width:760px;margin-bottom:38px}
+    .section-kicker{
+      color:var(--brand-2);font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase
+    }
+    h3{
+      font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;letter-spacing:-.04em;
+      margin:8px 0 12px;
+    }
+    .section-head p{color:var(--muted);font-size:1.04rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--surface);border:1px solid var(--line);
+      border-radius:var(--radius);padding:26px;box-shadow:0 10px 26px rgba(28,44,64,.035);
+    }
+    .card h4{margin:0 0 12px;font-size:1.12rem}
+    .card p{margin:0;color:var(--muted)}
+    .pill-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .pill{
+      padding:8px 11px;border:1px solid var(--line);background:#fafbfd;
+      border-radius:999px;font-size:.86rem;color:#465365
+    }
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+    .quote-card{
+      background:linear-gradient(145deg,#123c56,#1b6287);color:white;
+      border-radius:var(--radius);padding:30px;min-height:100%;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .quote-card .big{font-size:1.45rem;line-height:1.35;font-weight:700}
+    .quote-card small{opacity:.76}
+    .timeline{position:relative;margin-top:12px}
+    .timeline::before{
+      content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:var(--line)
+    }
+    .timeline-item{
+      position:relative;padding-left:48px;margin-bottom:28px
+    }
+    .timeline-item::before{
+      content:"";position:absolute;left:6px;top:8px;width:15px;height:15px;
+      border-radius:50%;background:var(--brand-2);box-shadow:0 0 0 5px var(--soft)
+    }
+    .timeline-item .meta{color:var(--brand-2);font-weight:800;font-size:.88rem}
+    .timeline-item h4{margin:2px 0 5px;font-size:1.08rem}
+    .timeline-item p{margin:0;color:var(--muted)}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .project{
+      background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+      transition:.22s ease;box-shadow:0 10px 28px rgba(31,47,66,.035)
+    }
+    .project:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .project-visual{
+      height:220px;padding:26px;display:flex;align-items:flex-end;
+      background:
+        linear-gradient(140deg, rgba(18,60,86,.96), rgba(28,103,142,.78)),
+        linear-gradient(25deg,#123c56,#d8e8ef);
+      color:white;
+    }
+    .project-visual.alt{background:linear-gradient(145deg,#16232f,#4e6f85)}
+    .project-visual.light{background:linear-gradient(145deg,#dde9ef,#9bbac9);color:#173042}
+    .project-visual strong{font-size:1.45rem;line-height:1.1}
+    .project-body{padding:24px}
+    .project-body p{color:var(--muted);margin:0 0 16px}
+    .project-tag{font-size:.8rem;font-weight:800;color:var(--brand-2);text-transform:uppercase;letter-spacing:.05em}
+    .education-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .edu-card .year{font-size:.82rem;color:var(--brand-2);font-weight:800}
+    .edu-card h4{font-size:1.22rem;margin:6px 0}
+    .edu-card p{color:var(--muted);margin:0}
+    .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .cert-card{min-height:165px;display:flex;flex-direction:column;justify-content:space-between}
+    .cert-card .label{font-size:.8rem;color:var(--brand-2);font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+    .cert-card strong{font-size:1.05rem}
+    .contact{
+      background:linear-gradient(145deg,#102f43,#195e81);color:#fff;border-radius:28px;
+      padding:42px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center
+    }
+    .contact p{color:rgba(255,255,255,.76);max-width:650px}
+    .contact-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+    .contact .btn-outline{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.22);color:#fff}
+    footer{padding:34px 0 48px;color:var(--muted);font-size:.9rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .mobile-toggle{display:none;border:0;background:none;font-size:1.6rem}
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.contact{grid-template-columns:1fr}
+      .grid-3,.cert-grid{grid-template-columns:1fr 1fr}
+      .projects{grid-template-columns:1fr}
+      .portrait{min-height:330px}
+      .contact-actions{justify-content:flex-start}
+      .menu{display:none}
+      .mobile-toggle{display:block}
+    }
+    @media(max-width:620px){
+      .container{width:min(100% - 24px, var(--max))}
+      .hero{padding:60px 0 50px}
+      section{padding:60px 0}
+      .grid-3,.cert-grid,.education-grid{grid-template-columns:1fr}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .btn{width:100%}
+      .contact{padding:28px 22px}
+      h1{font-size:3.7rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand">Artur <span>Fagundes</span></a>
+      <div class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#formacao">Formação</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <a class="btn btn-primary" href="curriculo-artur-fagundes.pdf" target="_blank">Baixar currículo</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Portfólio profissional</span>
+          <h1>Artur<br>Fagundes</h1>
+          <h2>Negócios • Processos • Projetos</h2>
+          <p>
+            Profissional com experiência comercial, administrativa e industrial, com atuação em desenvolvimento de negócios,
+            relacionamento com clientes, análise de processos e soluções orientadas a resultados.
+          </p>
+          <p>
+            Minha trajetória combina visão estratégica de negócio, raciocínio técnico e capacidade de execução.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-outline" href="#experiencia">Conhecer minha trajetória</a>
+          </div>
+        </div>
+        <div class="portrait">
+          <div class="portrait-card">
+            <strong>Perfil multidisciplinar</strong>
+            <span>Comercial • Gestão • Indústria • Engenharia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Sobre mim</div>
+          <h3>Visão de negócio com base técnica.</h3>
+          <p>
+            Minha trajetória foi construída em ambientes bastante diferentes — militar, industrial, administrativo e comercial.
+            Essa combinação ampliou minha capacidade de compreender pessoas, processos, operação e resultado.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="quote-card">
+            <div class="big">
+              “Gosto de entender como uma empresa funciona por inteiro: clientes, produtos, processos, pessoas, custos e resultados.”
+            </div>
+            <small>Meu objetivo é transformar problemas em soluções estruturadas e executáveis.</small>
+          </div>
+          <div class="card">
+            <h4>Como eu agrego valor</h4>
+            <p>
+              Atuo de forma analítica e prática. Busco identificar gargalos, compreender necessidades, estruturar soluções e conectar
+              objetivos comerciais, operacionais e técnicos.
+            </p>
+            <div class="pill-wrap">
+              <span class="pill">Desenvolvimento de negócios</span>
+              <span class="pill">Planejamento</span>
+              <span class="pill">Processos</span>
+              <span class="pill">Melhoria contínua</span>
+              <span class="pill">Projetos</span>
+              <span class="pill">Análise de indicadores</span>
+              <span class="pill">Relacionamento com clientes</span>
+              <span class="pill">Raciocínio técnico</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Áreas de atuação</div>
+          <h3>Três frentes que se complementam.</h3>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>Estratégia & Negócios</h4>
+            <p>Prospecção, negociação, diagnóstico de necessidades, desenvolvimento B2B, relacionamento com clientes e planejamento comercial.</p>
+          </div>
+          <div class="card">
+            <h4>Gestão & Processos</h4>
+            <p>Mapeamento de processos, indicadores, identificação de gargalos, organização operacional, melhoria contínua e gestão de projetos.</p>
+          </div>
+          <div class="card">
+            <h4>Engenharia & Projetos</h4>
+            <p>Desenho técnico, modelagem 3D, CAD, desenvolvimento de produto e evolução contínua em ferramentas como SolidWorks, AutoCAD e Inventor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Experiência</div>
+          <h3>Uma trajetória construída em ambientes diferentes.</h3>
+          <p>Cada etapa contribuiu para desenvolver disciplina, comunicação, capacidade analítica, visão operacional e orientação a resultados.</p>
+        </div>
+
+        <div class="card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="meta">2026 — atual</div>
+              <h4>Acelera Saúde — Consultor Comercial</h4>
+              <p>Desenvolvimento de negócios B2B e B2C, prospecção ativa, diagnóstico de necessidades, propostas, negociação, CRM e relacionamento com decisores.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="meta">2025 — 2026</div>
+              <h4>Verisure — Consultor Comercial</h4>
+              <p>Prospecção, vendas consultivas, negociação e desenvolvimento de novos clientes em rotina de alta intensidade comercial.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="meta">2025</div>
+              <h4>Kleber Máquinas — Administrativo, Financeiro e Comercial</h4>
+              <p>Atuação multidisciplinar em ambiente empresarial, conectando rotinas administrativas, financeiras e comerciais.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="meta">2025</div>
+              <h4>Taurus — Área Técnica / Qualidade</h4>
+              <p>Experiência em ambiente industrial, com contato com processos, padrões de qualidade e rotina técnica.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="meta">2019 — 2024</div>
+              <h4>Exército Brasileiro — Cabo / Armeiro</h4>
+              <p>Atuação em ambiente de alta responsabilidade, disciplina operacional, manutenção, controle de materiais e execução de procedimentos técnicos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Projetos & Cases</div>
+          <h3>Conhecimento aplicado, não apenas listado.</h3>
+          <p>Esta seção foi pensada para crescer junto com a carreira. Os projetos abaixo podem ser substituídos pelos trabalhos reais conforme forem sendo desenvolvidos.</p>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual">
+              <strong>Dashboard de<br>Gestão Comercial</strong>
+            </div>
+            <div class="project-body">
+              <div class="project-tag">Dados • Comercial</div>
+              <p>Painel para acompanhar leads, propostas, vendas, conversão, desempenho mensal e principais indicadores da operação comercial.</p>
+              <div class="pill-wrap">
+                <span class="pill">Power BI</span>
+                <span class="pill">Excel</span>
+                <span class="pill">KPIs</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual alt">
+              <strong>Diagnóstico de<br>Processo Comercial</strong>
+            </div>
+            <div class="project-body">
+              <div class="project-tag">Processos • Estratégia</div>
+              <p>Mapeamento de jornada comercial, identificação de gargalos, proposta de cadência, indicadores, etapas do funil e plano de melhoria.</p>
+              <div class="pill-wrap">
+                <span class="pill">Processos</span>
+                <span class="pill">CRM</span>
+                <span class="pill">Planejamento</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual light">
+              <strong>Projeto Mecânico<br>em CAD</strong>
+            </div>
+            <div class="project-body">
+              <div class="project-tag">Engenharia • CAD</div>
+              <p>Espaço reservado para modelagem 3D, montagem, desenho técnico, detalhamento e desenvolvimento de componentes mecânicos.</p>
+              <div class="pill-wrap">
+                <span class="pill">SolidWorks</span>
+                <span class="pill">AutoCAD</span>
+                <span class="pill">Desenho Técnico</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual" style="background:linear-gradient(145deg,#24303c,#7a8a96)">
+              <strong>Case de<br>Desenvolvimento B2B</strong>
+            </div>
+            <div class="project-body">
+              <div class="project-tag">Negócios • B2B</div>
+              <p>Estruturação de prospecção, qualificação, diagnóstico, proposta, negociação e acompanhamento de oportunidades em carteira empresarial.</p>
+              <div class="pill-wrap">
+                <span class="pill">B2B</span>
+                <span class="pill">Negociação</span>
+                <span class="pill">Relacionamento</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Formação</div>
+          <h3>Formação voltada a gestão e base técnica.</h3>
+        </div>
+
+        <div class="education-grid">
+          <div class="card edu-card">
+            <div class="year">2026 — atual</div>
+            <h4>Administração — Uniasselvi</h4>
+            <p>Graduação em andamento, com foco em gestão, estratégia, processos, finanças e desenvolvimento organizacional.</p>
+          </div>
+          <div class="card edu-card">
+            <div class="year">Trajetória acadêmica</div>
+            <h4>Engenharia Mecânica — IFSul</h4>
+            <p>Formação cursada com desenvolvimento de base em desenho técnico, mecânica, materiais, cálculo e projetos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificacoes">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Cursos & certificações</div>
+          <h3>Aprendizado contínuo e aplicação prática.</h3>
+          <p>Os cards abaixo servem como estrutura. Depois basta trocar pelos cursos concluídos e incluir links para os certificados.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="card cert-card">
+            <div class="label">Engenharia</div>
+            <strong>SolidWorks</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+          <div class="card cert-card">
+            <div class="label">Engenharia</div>
+            <strong>AutoCAD</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+          <div class="card cert-card">
+            <div class="label">Dados</div>
+            <strong>Power BI</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+          <div class="card cert-card">
+            <div class="label">Gestão</div>
+            <strong>Gestão de Projetos</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+          <div class="card cert-card">
+            <div class="label">Gestão</div>
+            <strong>Mapeamento de Processos</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+          <div class="card cert-card">
+            <div class="label">Estratégia</div>
+            <strong>Gestão Estratégica</strong>
+            <span class="pill">Certificado em breve</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <div class="section-kicker" style="color:#8bd0f0">Contato</div>
+            <h3 style="margin-top:8px">Vamos conversar?</h3>
+            <p>
+              Aberto a oportunidades nas áreas de negócios, gestão, processos, projetos e engenharia, especialmente em ambientes que valorizem aprendizado, autonomia e geração de resultado.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-outline" href="mailto:SEU_EMAIL_AQUI">E-mail</a>
+            <a class="btn btn-outline" href="SEU_LINKEDIN_AQUI" target="_blank">LinkedIn</a>
+            <a class="btn btn-outline" href="SEU_WHATSAPP_AQUI" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Artur Fagundes</span>
+      <span>Portfólio profissional</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
